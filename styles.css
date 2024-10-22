@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+:root {
+  --netflix-black: #000000;
+  --netflix-red: #e50914;
+  --netflix-gray: #181818;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--netflix-black);
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Header Styles */
+ul {
+  height: 25px;
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.img-topo {
+  height: 25px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.img-topo:hover {
+  transform: scale(1.1);
+}
+
+/* Video Background */
+video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+/* Cover Content */
+.capa {
+  position: absolute;
+  bottom: 30%;
+  left: 5%;
+  width: 35%;
+  z-index: 2;
+}
+
+.capa-titulo {
+  color: white;
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.capa-descricao {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Buttons */
+.botoes-capa {
+  display: flex;
+  gap: 1rem;
+}
+
+.link-assistir,
+.link-info {
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.link-assistir {
+  background-color: white;
+  color: var(--netflix-black);
+}
+
+.link-info {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+.link-assistir:hover,
+.link-info:hover {
+  transform: scale(1.05);
+}
+
+/* Carousel */
+#carouselExampleControls {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  width: 90%;
+}
+
+.titulo-carrossel {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.imagem-carrossel {
+  height: 150px;
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+}
+
+.imagem-carrossel:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#carouselExampleControls:hover .carousel-control-prev,
+#carouselExampleControls:hover .carousel-control-next {
+  opacity: 1;
+}
+
+/* Sound Button */
+.botao-som {
+  position: absolute;
+  top: 100px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 3;
+  transition: all 0.3s ease;
+}
+
+.botao-som:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.modal-conteudo {
+  background-color: var(--netflix-gray);
+  margin: 5% auto;
+  padding: 2rem;
+  width: 60%;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 750px) {
+  .capa {
+    width: 90%;
+    bottom: 40%;
+  }
+
+  .capa-titulo {
+    font-size: 2.5rem;
+  }
+
+  .capa-descricao {
+    font-size: 1rem;
+  }
+
+  .modal-conteudo {
+    width: 90%;
+    margin: 10% auto;
+  }
+
+  #carouselExampleControls {
+    bottom: 10%;
+  }
+
+  .imagem-carrossel {
+    height: 100px;
+  }
+
+  .botoes-capa {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .link-assistir,
+  .link-info {
+    text-align: center;
+  }
+}
