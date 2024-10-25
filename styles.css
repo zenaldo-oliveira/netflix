@@ -184,7 +184,7 @@ video {
 }
 
 /* Responsive Design */
-@media (max-width: 750px) {
+@media (max-width: 700px) {
   .capa {
     width: 90%;
     bottom: 40%;

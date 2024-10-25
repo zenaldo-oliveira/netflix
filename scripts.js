@@ -1,24 +1,42 @@
-let botaoSom = document.querySelector('.botao-som');
-let video = document.querySelector('video');
-let botao = document.querySelector('.link-info');
-let modal = document.querySelector('.modal');
+// Seletores
+const botaoSom = document.querySelector('.botao-som');
+const video = document.querySelector('video');
+const botao = document.querySelector('.link-info');
+const modal = document.querySelector('.modal');
+const audio = document.querySelector('.audio');
 
-// ligar o som
-botaoSom.addEventListener('click', ligaSom);
+// Função para tocar o áudio de "tudum"
+const tocarAudio = () => {
+  if (audio) {
+    audio.play().catch((error) => {
+      console.error('Erro ao reproduzir o áudio:', error);
+    });
+  }
+};
 
-function ligaSom() {
-  video.muted = false;
-}
+// Ligar o som do vídeo e tocar o áudio ao clicar no botão de som
+const ligaSom = () => {
+  if (video) {
+    video.muted = false;
+  }
+  tocarAudio();
+};
 
-// mostrar o modal
+// Exibir e ocultar o modal
+const mostrarModal = () => {
+  if (modal) {
+    modal.style.display = 'block';
+  }
+};
 
-botao.addEventListener('click', mostrarModal);
-modal.addEventListener('click', esconderModal);
+const esconderModal = () => {
+  if (modal) {
+    modal.style.display = 'none';
+  }
+};
 
-function mostrarModal() {
-  modal.style.display = 'block';
-}
-
-function esconderModal() {
-  modal.style.display = 'none';
-}
+// Eventos
+botaoSom?.addEventListener('click', ligaSom);
+botao?.addEventListener('click', mostrarModal);
+modal?.addEventListener('click', esconderModal);
+window.addEventListener('load', tocarAudio);
